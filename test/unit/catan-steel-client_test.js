@@ -47,7 +47,6 @@ describe('Catan Steel Client', function() {
         expect(client._backend).to.respondTo('ear');
         expect(client._backend).to.respondTo('say');
         expect(client._backend).to.respondTo('go');
-
       });
 
       describe('Protocol configuration', function() {
@@ -152,8 +151,20 @@ describe('Catan Steel Client', function() {
   });
 
   describe('Chopping', function() {
+    var client;
+    beforeEach(function() {
+      client = catanClient.createClient();
+      client.setup();
+    });
 
-    it('should be able to chop steel');
+    it('should be able to chop steel', function() {
+      var stub = sinon.stub(client._backend, 'chop').yields(null, 'steel'),
+          cb = sinon.spy();
+      expect(client).to.respondTo('chop');
+
+      client.chop(cb);
+      expect(stub).to.have.been.called;
+    });
 
     it('should inform when a chop has happened');
 

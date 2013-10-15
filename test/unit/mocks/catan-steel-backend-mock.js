@@ -16,10 +16,15 @@ var SteelBackend = function SteelBackendServerMock(config) {
 
   }
 
+  function chop(cb) {
+
+  }
+
   return {
     ear: ear,
     say: say,
-    go: go
+    go: go,
+    chop: chop
   };
 
 };
