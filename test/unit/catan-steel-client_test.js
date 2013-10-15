@@ -166,9 +166,24 @@ describe('Catan Steel Client', function() {
       expect(stub).to.have.been.called;
     });
 
-    it('should inform when a chop has happened');
+    it('should inform when a chop has happened', function() {
+      var cb = sinon.spy();
 
-    it('should inform when a chop has not been successful');
+      sinon.stub(client._backend, 'chop').yields(null, 'steel');
+
+      client.chop(cb);
+      expect(cb).to.have.been.calledWith(null, 'steel');
+    });
+
+    it('should inform when a chop has not been successful', function() {
+      var cb = sinon.spy(),
+          err = new Error();
+
+      sinon.stub(client._backend, 'chop').yields(err);
+
+      client.chop(cb);
+      expect(cb).to.have.been.calledWith(err);
+    });
 
   });
 
