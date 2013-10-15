@@ -1,0 +1,1 @@
+module.exports = require('./lib/catan-steel-client');
