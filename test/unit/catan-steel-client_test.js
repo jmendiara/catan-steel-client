@@ -11,7 +11,30 @@ describe('Catan Steel Client', function() {
       expect(client).to.be.instanceOf(catanClient.CatanClient);
     });
 
-    it('should be able to configure where the client should connect');
+    describe('Client configuration', function() {
+      it('should be able to configure where the client should connect', function() {
+        var config = {
+              houses: {
+                baseURL: 'http://foo',
+                paths: {
+                  abuela: '/bar',
+                  donpepito: '/lol'
+                }
+              },
+              conversation: {
+                baseURL: 'http://yum'
+              }
+            },
+            client = catanClient.createClient(config);
+
+        expect(client.config).to.be.deep.equal(config);
+      });
+
+      it('should be able to use default configuration', function() {
+        var client = catanClient.createClient();
+        expect(client.config).to.be.deep.equal(catanClient._defaultConfig);
+      });
+    });
   });
 
   describe('Chopping', function() {
