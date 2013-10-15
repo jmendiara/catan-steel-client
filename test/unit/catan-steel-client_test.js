@@ -1,9 +1,9 @@
 'use strict';
 
 var proxyquire = require('proxyquire'),
-    catanSever = require('./mocks/catan-steel-backend-mock'),
+    catanServer = require('./mocks/catan-steel-backend-mock'),
     catanClient = proxyquire('../../lib/catan-steel-client', {
-      './catan-steel-backend': catanSever
+      './catan-steel-backend': catanServer
     });
 
 describe('Catan Steel Client', function() {
@@ -43,12 +43,25 @@ describe('Catan Steel Client', function() {
     describe('Catan Server Backend', function() {
       it('should be able to create a server backend implementation for a client', function() {
         var client = catanClient.createClient();
-        expect(client._backend).to.be.instanceof(catanSever.CatanBackend);
+        expect(client._backend).to.exist;
+        expect(client._backend).to.respondTo('ear');
 
       });
 
       describe('Protocol configuration', function() {
-        it('should ear "¡Hola Don Pepito!"');
+        var client;
+        beforeEach(function() {
+          client = catanClient.createClient();
+        });
+        it('should ear "¡Hola Don Pepito!"', function() {
+          var spy = sinon.spy(client._backend, 'ear'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.HOLA_DON_PEPITO);
+
+        });
         it('should say "¡Hola Don Jose!"');
         it('should ear "¿Paso usted por mi casa?"');
         it('should go to don Jose House');

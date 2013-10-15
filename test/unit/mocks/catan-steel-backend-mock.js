@@ -3,7 +3,13 @@
 /*jshint -W098*/
 var SteelBackend = function SteelBackendServerMock(config) {
 
+  function ear(str) {
 
+  }
+
+  return {
+    ear: ear
+  };
 
 };
 
