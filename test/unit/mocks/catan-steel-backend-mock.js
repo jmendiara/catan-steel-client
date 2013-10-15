@@ -17,7 +17,7 @@ var SteelBackend = function SteelBackendServerMock(config) {
   }
 
   function chop(cb) {
-
+    cb(null, 'steel');
   }
 
   return {
