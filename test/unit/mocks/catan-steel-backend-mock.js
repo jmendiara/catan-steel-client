@@ -1,5 +1,6 @@
 'use strict';
 
+
 /*jshint -W098*/
 var SteelBackend = function SteelBackendServerMock(config) {
 

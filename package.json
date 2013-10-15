@@ -39,5 +39,7 @@
     "proxyquire": "0.5.1"
   },
   "keywords": [],
-  "dependencies": {}
+  "dependencies": {
+    "socket.io-client": "0.9.16"
+  }
 }

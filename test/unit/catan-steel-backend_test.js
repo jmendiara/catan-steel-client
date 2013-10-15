@@ -1,6 +1,11 @@
 'use strict';
 
-var catanServer = require('../../lib/catan-steel-backend');
+var proxyquire = require('proxyquire'),
+    SocketIOMock = require('./mocks/socket.io-client-mock'),
+    catanServer = proxyquire('../../lib/catan-steel-backend', {
+        'socket.io-client': SocketIOMock
+      }
+    );
 
 describe('Catan Steel Backend', function() {
 
@@ -34,5 +39,13 @@ describe('Catan Steel Backend', function() {
         expect(server.config).to.be.deep.equal(catanServer._defaultConfig);
       });
     });
+
+    it('should be able to connect using websockets', function() {
+      var spy = sinon.spy(SocketIOMock, 'connect');
+      catanServer.createConnection();
+
+      expect(spy).to.have.been.calledOnce;
+    });
   });
+
 });
