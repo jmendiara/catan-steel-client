@@ -7,8 +7,14 @@ var SteelBackend = function SteelBackendServerMock(config) {
 
   }
 
+
+  function say(str) {
+
+  }
+
   return {
-    ear: ear
+    ear: ear,
+    say: say
   };
 
 };
