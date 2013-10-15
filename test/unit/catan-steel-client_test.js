@@ -1,6 +1,10 @@
 'use strict';
 
-var catanClient = require('../../lib/catan-steel-client');
+var proxyquire = require('proxyquire'),
+    catanSever = require('./mocks/catan-steel-backend-mock'),
+    catanClient = proxyquire('../../lib/catan-steel-client', {
+      './catan-steel-backend': catanSever
+    });
 
 describe('Catan Steel Client', function() {
 
@@ -37,7 +41,11 @@ describe('Catan Steel Client', function() {
     });
 
     describe('Catan Server Backend', function() {
-      it('should be able to create a server backend implementation for a client');
+      it('should be able to create a server backend implementation for a client', function() {
+        var client = catanClient.createClient();
+        expect(client._backend).to.be.instanceof(catanSever.CatanBackend);
+
+      });
 
       describe('Protocol configuration', function() {
         it('should ear "¡Hola Don Pepito!"');
