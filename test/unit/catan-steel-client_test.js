@@ -44,7 +44,7 @@ describe('Catan Steel Client', function() {
       it('should be able to create a server backend implementation for a client', function() {
         var client = catanClient.createClient();
         expect(client._backend).to.exist;
-        expect(client._backend).to.respondTo('ear');
+        expect(client._backend).to.respondTo('hear');
         expect(client._backend).to.respondTo('say');
         expect(client._backend).to.respondTo('go');
       });
@@ -55,7 +55,7 @@ describe('Catan Steel Client', function() {
           client = catanClient.createClient();
         });
         it('should ear "¡Hola Don Pepito!"', function() {
-          var spy = sinon.spy(client._backend, 'ear'),
+          var spy = sinon.spy(client._backend, 'hear'),
               talk = catanClient._protocol.TALK;
 
           client.setup();
@@ -73,7 +73,7 @@ describe('Catan Steel Client', function() {
         });
 
         it('should ear "¿Paso usted por mi casa?"', function() {
-          var spy = sinon.spy(client._backend, 'ear'),
+          var spy = sinon.spy(client._backend, 'hear'),
               talk = catanClient._protocol.TALK;
 
           client.setup();
@@ -100,7 +100,7 @@ describe('Catan Steel Client', function() {
         });
 
         it('should ear "¿Vio usted a mi abuela?"', function() {
-          var spy = sinon.spy(client._backend, 'ear'),
+          var spy = sinon.spy(client._backend, 'hear'),
               talk = catanClient._protocol.TALK;
 
           client.setup();
@@ -127,7 +127,7 @@ describe('Catan Steel Client', function() {
         });
 
         it('should ear "¡Adios Don Pepito!"', function() {
-          var spy = sinon.spy(client._backend, 'ear'),
+          var spy = sinon.spy(client._backend, 'hear'),
               talk = catanClient._protocol.TALK;
 
           client.setup();

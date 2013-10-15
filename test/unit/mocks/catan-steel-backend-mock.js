@@ -4,7 +4,7 @@
 /*jshint -W098*/
 var SteelBackend = function SteelBackendServerMock(config) {
 
-  function ear(str) {
+  function hear(str) {
 
   }
 
@@ -22,7 +22,7 @@ var SteelBackend = function SteelBackendServerMock(config) {
   }
 
   return {
-    ear: ear,
+    hear: hear,
     say: say,
     go: go,
     chop: chop
