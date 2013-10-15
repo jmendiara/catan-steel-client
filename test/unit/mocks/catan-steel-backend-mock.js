@@ -12,9 +12,14 @@ var SteelBackend = function SteelBackendServerMock(config) {
 
   }
 
+  function go(str) {
+
+  }
+
   return {
     ear: ear,
-    say: say
+    say: say,
+    go: go
   };
 
 };

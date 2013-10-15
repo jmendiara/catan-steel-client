@@ -46,6 +46,7 @@ describe('Catan Steel Client', function() {
         expect(client._backend).to.exist;
         expect(client._backend).to.respondTo('ear');
         expect(client._backend).to.respondTo('say');
+        expect(client._backend).to.respondTo('go');
 
       });
 
@@ -72,7 +73,14 @@ describe('Catan Steel Client', function() {
           expect(spy).to.have.been.calledWith(talk.HOLA_DON_JOSE);
         });
         it('should ear "¿Paso usted por mi casa?"');
-        it('should go to don Jose House');
+        it('should go to don Jose House', function() {
+          var spy = sinon.spy(client._backend, 'go'),
+              go = catanClient._protocol.HOMES;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(go.DON_JOSE);
+        });
         it('should say "Por su casa yo pase"');
         it('should ear "¿Vio usted a mi abuela?"');
         it('should go to Abuela House');
