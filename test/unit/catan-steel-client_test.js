@@ -62,8 +62,8 @@ describe('Catan Steel Client', function() {
           client.setup();
 
           expect(spy).to.have.been.calledWith(talk.HOLA_DON_PEPITO);
-
         });
+
         it('should say "¡Hola Don Jose!"', function() {
           var spy = sinon.spy(client._backend, 'say'),
               talk = catanClient._protocol.TALK;
@@ -72,7 +72,16 @@ describe('Catan Steel Client', function() {
 
           expect(spy).to.have.been.calledWith(talk.HOLA_DON_JOSE);
         });
-        it('should ear "¿Paso usted por mi casa?"');
+
+        it('should ear "¿Paso usted por mi casa?"', function() {
+          var spy = sinon.spy(client._backend, 'ear'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.PASO_USTED_POR_MI_CASA);
+        });
+
         it('should go to don Jose House', function() {
           var spy = sinon.spy(client._backend, 'go'),
               go = catanClient._protocol.HOMES;
@@ -81,12 +90,62 @@ describe('Catan Steel Client', function() {
 
           expect(spy).to.have.been.calledWith(go.DON_JOSE);
         });
-        it('should say "Por su casa yo pase"');
-        it('should ear "¿Vio usted a mi abuela?"');
-        it('should go to Abuela House');
-        it('should say "A su abuela yo la vi"');
-        it('should ear "¡Adios Don Pepito!"');
-        it('should say "¡Adios Don Jose!"');
+
+        it('should say "Por su casa yo pase"', function() {
+          var spy = sinon.spy(client._backend, 'say'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.POR_SU_CASA_YO_PASE);
+        });
+
+        it('should ear "¿Vio usted a mi abuela?"', function() {
+          var spy = sinon.spy(client._backend, 'ear'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.VIO_USTED_A_MI_ABUELA);
+        });
+
+        it('should go to Abuela House', function() {
+          var spy = sinon.spy(client._backend, 'go'),
+              go = catanClient._protocol.HOMES;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(go.ABUELA);
+        });
+
+        it('should say "A su abuela yo la vi"', function() {
+          var spy = sinon.spy(client._backend, 'say'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.A_SU_ABUELA_YO_LA_VI);
+        });
+
+        it('should ear "¡Adios Don Pepito!"', function() {
+          var spy = sinon.spy(client._backend, 'ear'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.ADIOS_DON_PEPITO);
+        });
+
+        it('should say "¡Adios Don Jose!"', function() {
+          var spy = sinon.spy(client._backend, 'say'),
+              talk = catanClient._protocol.TALK;
+
+          client.setup();
+
+          expect(spy).to.have.been.calledWith(talk.ADIOS_DON_JOSE);
+        });
+
+        it('should make all the steps in order');
 
       });
     });
