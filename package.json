@@ -5,7 +5,7 @@
   "homepage": "https://github.com/jmendiara/catan-steel-client",
   "author": {
     "name": "Javier Mendiara Cañardo",
-    "email": "javier@tid.es"
+    "email": "jmendiara@gmail.com"
   },
   "repository": {
     "type": "git",
@@ -36,11 +36,13 @@
     "grunt-github-pages": "~0.0.3",
     "grunt-plato": "~0.2.0",
     "sinon-chai": "2.4.0",
-    "proxyquire": "0.5.1",
-    "nock": "~0.22.1"
+    "proxyquire": "0.5.1"
   },
   "keywords": [],
   "dependencies": {
-    "socket.io-client": "0.9.16"
+    "socket.io-client": "~0.9.16",
+    "underscore": "~1.5.2",
+    "q": "~0.9.7",
+    "request": "~2.27.0"
   }
 }
