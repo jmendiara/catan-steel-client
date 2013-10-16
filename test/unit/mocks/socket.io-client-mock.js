@@ -1,16 +1,20 @@
 'use strict';
 
-var util = require('util'),
-    EventEmitter = require('events').EventEmitter;
+var EventEmitter = require('events').EventEmitter,
+    util = require('util');
 
-var SocketIO = function SocketIOMock() {
 
+var SocketIOMock = function() {
+  this.socket = {
+    connected: false
+  };
 };
 
-util.inherits(SocketIO, EventEmitter);
+util.inherits(SocketIOMock, EventEmitter);
 
 /**
- * The Most simple mock of socketio ever
- * @type {SocketIO}
+ * @return {SocketIOMock}
  */
-module.exports = new SocketIO();
+exports.connect = function() {
+  return new SocketIOMock();
+};
