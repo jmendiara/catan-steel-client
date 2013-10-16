@@ -3,6 +3,12 @@
 TID Node Workshop - Steel Client
 
 ## Documentation
+### Installation
+```bash
+npm install --save catan-steel-client
+```
+
+### Usage
 ```js
 
 var catanSteelClient = require('catan-steel-client');
