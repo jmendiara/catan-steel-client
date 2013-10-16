@@ -34,6 +34,40 @@ client.chop(function(err, steel) {
 });
 
 ```
+
+### Timeline
+
+https://github.com/jmendiara/catan-steel-client/compare/step00...step01
+
+https://github.com/jmendiara/catan-steel-client/compare/step01...step02
+
+https://github.com/jmendiara/catan-steel-client/compare/step02...step03
+
+https://github.com/jmendiara/catan-steel-client/compare/step03...step04
+
+https://github.com/jmendiara/catan-steel-client/compare/step04...step05
+
+https://github.com/jmendiara/catan-steel-client/compare/step05...step06
+
+https://github.com/jmendiara/catan-steel-client/compare/step06...step07
+
+https://github.com/jmendiara/catan-steel-client/compare/step07...step08
+
+https://github.com/jmendiara/catan-steel-client/compare/step08...step09
+
+https://github.com/jmendiara/catan-steel-client/compare/step09...step10
+
+https://github.com/jmendiara/catan-steel-client/compare/step10...step11
+
+https://github.com/jmendiara/catan-steel-client/compare/step11...step12
+
+https://github.com/jmendiara/catan-steel-client/compare/step12...step13
+
+https://github.com/jmendiara/catan-steel-client/compare/step13...step14
+
+https://github.com/jmendiara/catan-steel-client/compare/step14...step15
+
+
 ### Project build
 The project is managed using Grunt Task Runner.
 
