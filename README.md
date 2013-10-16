@@ -3,6 +3,31 @@
 TID Node Workshop - Steel Client
 
 ## Documentation
+```js
+
+var catanSteelClient = require('catan-steel-client');
+
+var client = catanSteelClient.createClient({
+      houses: {
+        baseURL: 'http://localhost:3005',
+        paths: {
+          abuela: '/abuela',
+          donpepito: '/casa'
+        }
+      },
+      conversation: {
+        baseURL: 'http://localhost:3004'
+      }
+    }
+);
+
+client.chop(function(err, steel) {
+  if(!err) {
+    console.log('I have steel!', steel);
+  }
+});
+
+```
 ### Project build
 The project is managed using Grunt Task Runner.
 
