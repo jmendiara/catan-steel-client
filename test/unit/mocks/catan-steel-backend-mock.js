@@ -1,9 +1,10 @@
 'use strict';
 
+
 /*jshint -W098*/
 var SteelBackend = function SteelBackendServerMock(config) {
 
-  function ear(str) {
+  function hear(str) {
 
   }
 
@@ -17,11 +18,11 @@ var SteelBackend = function SteelBackendServerMock(config) {
   }
 
   function chop(cb) {
-
+    cb(null, 'steel');
   }
 
   return {
-    ear: ear,
+    hear: hear,
     say: say,
     go: go,
     chop: chop

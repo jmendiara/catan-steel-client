@@ -36,8 +36,11 @@
     "grunt-github-pages": "~0.0.3",
     "grunt-plato": "~0.2.0",
     "sinon-chai": "2.4.0",
-    "proxyquire": "0.5.1"
+    "proxyquire": "0.5.1",
+    "nock": "~0.22.1"
   },
   "keywords": [],
-  "dependencies": {}
+  "dependencies": {
+    "socket.io-client": "0.9.16"
+  }
 }
